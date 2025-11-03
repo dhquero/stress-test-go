@@ -62,18 +62,6 @@ func (s *StressTestUseCase) Execute() (*StressTestOutput, error) {
 		StatusCode:     map[int]int{},
 	}
 
-	// for i := 0; i < int(s.requests); i++ {
-	// 	repository := repository.NewHTTPRepository(s.url, s.timeout)
-
-	// 	response, err := repository.Get()
-	// 	if err != nil {
-	// 		return nil, err
-	// 	}
-
-	// 	stressTestOutput.NumberRequests++
-	// 	stressTestOutput.StatusCode[response.StatusCode]++
-	// }
-
 	var wg sync.WaitGroup
 	jobs := make(chan string, s.concurrency)
 
